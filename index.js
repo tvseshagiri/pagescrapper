@@ -11,7 +11,6 @@ functions.http('pageInfoExtractor', async (req, resp) => {
             } else {
             const pageInfo = await getPageInfo(siteUrl)
             if (pageInfo.type == 'Error') {
-                console.log("Error got %s",pageInfo)
                 resp.status(pageInfo.status)
                 .send(pageInfo.message)
             } else {
