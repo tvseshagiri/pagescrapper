@@ -1,0 +1,20 @@
+{
+  "name": "webpagescrapper",
+  "version": "1.0.0",
+  "description": "Utility for scrapping Web Page information title, description & keywords",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Seshagiri",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^3.2.0",
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0"
+  }
+}
