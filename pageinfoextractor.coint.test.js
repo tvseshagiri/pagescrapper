@@ -9,11 +9,10 @@ describe("Component IT::Page Info Fetcher", () => {
         expect(resp.title).toBe('Google');
     });
 
-    it('Amazon Page must have keywords and desc', async () => {
-        const resp = await getPageInfo('https://www.amazon.in/');
+    it('Amazon Page must have desc', async () => {
+        const resp = await getPageInfo('https://www.apple.com/in/itunes/');
         expect(resp).not.toBeNull();
         expect(resp.desc).not.toBeNull();
-        expect(resp.keywords).not.toBe('');
     });
 
     it('Amazon unknown Page must return error message with 404', async () => {

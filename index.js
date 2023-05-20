@@ -7,14 +7,21 @@ functions.http('pageInfoExtractor', async (req, resp) => {
             ({siteUrl} = req.body)
 
             if (!siteUrl) {
-                resp.status(400).send({message:"Empty URL"})
-            }
-
+                resp.status(400).send("Bad Request with Empty URL")
+            } else {
             const pageInfo = await getPageInfo(siteUrl)
-            resp.status(200).send(pageInfo)
+            if (pageInfo.type == 'Error') {
+                console.log("Error got %s",pageInfo)
+                resp.status(pageInfo.status)
+                .send(pageInfo.message)
+            } else {
+                resp.status(200).send(pageInfo)
+            }
+        }
+            break;
         }
         default: {
-            resp.status(405).send({message:"Method not supported"})
+            resp.status(405).send("Method not supported")
         }
     }
 })

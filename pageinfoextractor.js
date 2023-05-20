@@ -22,7 +22,7 @@ const cheerio = require('cheerio')
     }).catch(err => {
         console.log(` Error %s`,err)
 
-        errResp = {}
+        errResp = {type: 'Error'}
 
         if (err.response) {
             errResp.status = err.response.status;
